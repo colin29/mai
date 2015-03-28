@@ -1,0 +1,10 @@
+;
+Person: Leo, 10, 1,;
+Person: Leo, 10, 1,;
+Person: Leo, 10, 1,;
+Person: Leo, 10, 1,;
+Person: Leo, 10, 1,;
+Relation: Leo, Ami, friend,;
+Relation: Leo, Ami, friend,;
+Relation: Leo, Ami, friend,;
+Relation: Leo, Ami, friend,;
