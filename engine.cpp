@@ -11,99 +11,25 @@
 #include <limits>
 #include <stdlib.h>  
 #include <set>
-#include <algorithm>
 
-using namespace std;
+#include "engine.h" //empty for now
+#include "EntrySet.h"
+#include "Entry.h" //depends if the engine file will need to manipluate entries directly
 
-//------------------------------------------------------------------------------------------------------------------
-// Class Definitions------------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------------------------
-
-class Entry{ //these store Mai's information, like wikipedia articles. They are related, and the way they are related constitutes Mai's understanding.
-//fields//
-public:
-enum type{THING, ABSTRACT_NOUN}; //"thing" includes both entities and objects. I'm hoping not including them at this level will make the entries more flextible.
-type t;
-
-private:
-string title; //textual definition. Mai usually doesn't have a understanding of these definitions because they are too high level.
-
-
-//member functions//
- public:
- 	friend bool entryComp(const Entry&, const Entry&);
-	string definition;
-	Entry(string s, type t)
-		: title(s)
-		, t(t)
-		{};
-	string getTitle() const {
-		return title;
-	}
-};
-
-namespace enumTypes{
-const string entry[2] = {"THING", "ABSTRACT_NOUN"};
-}
-
-bool entryComp(const Entry& e1, const Entry& e2){
-		return e1.title < e2.title;
-}
-
-class EntrySet{
-//Class Invariants:  setOfEntries holds a ordered set of Entries. Entries are sorted by title A-Z, and each entry has a unique title.
-
-	private:
-	vector<Entry> setOfEntries;
-
-	public:
-	EntrySet(){};
-	int getSize(){
-		return setOfEntries.size();
-	}
-
-	void insert(const Entry& e){
-		setOfEntries.push_back(e);
-
-	}
-
-	void printEntryBank(){
-	cout << "Printing out Entry Bank: (# of Entries: " << this->getSize() << ")." << endl;
-	cout << "===Start of EntryBank===" << endl;
-	for(vector<Entry>::iterator it = setOfEntries.begin(); it != setOfEntries.end(); it++){
-		cout << "Title: " << it->getTitle() << "; Definition: " << it->definition << endl;
-	}
-	cout << "===End of EntryBank===" << endl;
-}
-	
-
-	private:
-	
-	void sort(){
-		std::sort(setOfEntries.begin(), setOfEntries.end(), entryComp);
-	}
-
-	
-
-};
-
-
-//------------------------------------------------------------------------------------------------------------------
-//Function Declarations and main------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------------------------
-
+using std::string;
+using std::vector;
+using std::cout;
+using std::endl;
 
 // void saveToRelationalTable();
 // void loadFromRelationTable();
-void init();
-
 
 EntrySet entryBank;
 int main(){
 init();
 
 
-//start of testing area
+//===================================start of testing area===================================
 //loadFromRelationTable();
 
 // cout << "Select an Option:"
@@ -118,12 +44,12 @@ entryBank.insert(e1);
 entryBank.printEntryBank();
 
 // saveToRelationalTable();
-//end of testing area
+//===================================end of testing area===================================
 }
 
 
 //------------------------------------------------------------------------------------------------------------------
-//Function Definitions ---------------------------------------------------------------------------------------------
+//Non-main Function Definitions ---------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------
 
 

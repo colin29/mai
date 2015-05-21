@@ -1,3 +1,0 @@
-Person: Leo, 10, 1;
-Relation: Leo, Ami, friend;
-This is another line.
