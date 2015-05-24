@@ -10,18 +10,27 @@ class Entry{ //these store Mai's information, like wikipedia articles. They are 
 //fields//
 
 public:
-	enum type{THING, ABSTRACT_NOUN}; //"thing" includes both entities and objects. I'm hoping not including them at this level will make the entries more flextible.
-	std::string definition;
-	type t;
+	enum conT{THING, ABSTRACT_TOPIC}; //"thing" includes both entities and objects. I'm hoping not including them at this level will make the entries more flextible.
+	enum plurT{COMMON_NOUN, PROPER_NOUN};
 
-	Entry(std::string s, type t);
-
- 	std::string getTitle() const;
+	Entry() = delete; //no default because title, conT, plurT are effectively const.
+	Entry(std::string title, conT, plurT);
 
 	friend bool EntrySet::entryComp(const Entry&, const Entry&);
-
-private:
-	std::string title; //textual definition. Mai usually doesn't have a understading of these definitions because they are too abstract/complex
 	
+	//Getters and Setters
+	std::string title() const;
+	conT conceptualType() const;
+	plurT pluralityType() const;
+
+	std::string def() const;
+	void setDef(std::string);
+private:
+	 //conT, plurT, and title should never be re-assigned except for when replacing the entire object
+	conT mConceptualType;
+	plurT mPluralityType; 
+	std::string mTitle; 
+
+	std::string mDefinition;
 };
 #endif

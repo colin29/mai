@@ -38,9 +38,9 @@ init();
 // people.push_back(a);
 // Relation r("Leo", "Ami", Relation::TOMO);
 // relationTable.push_back(r);
-Entry e1("Intelligence", Entry::ABSTRACT_NOUN);
-e1.definition = "Ability to react meaningfully with a purpose to the input/environment.";
-entryBank.insert(e1);
+//Entry e1("Intelligence", Entry::ABSTRACT_NOUN);
+//e1.definition = "Ability to react meaningfully with a purpose to the input/environment.";
+//entryBank.insert(e1);
 entryBank.printEntryBank();
 
 // saveToRelationalTable();

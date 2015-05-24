@@ -10,32 +10,40 @@ using std::string;
 using std::cout;
 using std::endl;
 
-EntrySet::EntrySet(){};
 
-int EntrySet::getSize(){
-	return setOfEntries.size();
-}
+
+//public functions:
+
+EntrySet::EntrySet(){};
 
 void EntrySet::insert(const Entry& e){
 	setOfEntries.push_back(e);
-
+	sort(); //very ineffecient but not a concern any time soon (<10,000 Entries)
 }
 
-void EntrySet::printEntryBank(){
-	cout << "Printing out Entry Bank: (# of Entries: " << this->getSize() << ")." << endl;
+int EntrySet::getSize() const{
+	return setOfEntries.size();
+}
+
+void EntrySet::printEntryBank() const{
 	cout << "===Start of EntryBank===" << endl;
-	for(vector<Entry>::iterator it = setOfEntries.begin(); it != setOfEntries.end(); it++){
-		cout << "Title: " << it->getTitle() << "; Definition: " << it->definition << endl;
+	int counter = 0;
+	for(vector<Entry>::const_iterator it = setOfEntries.begin(); it != setOfEntries.end(); it++){
+		cout << "Entry " << counter++ << ":"
+			 << "\nTitle: " << it->title() 
+			 << "\nDefinition: " << it->def()  
+			 << "\nTypes: " << it->conceptualType() << " " << it->pluralityType()
+			 << endl;
 	}
 	cout << "===End of EntryBank===" << endl;
 }
 
 
-//Private Members Functions//
-bool EntrySet::entryComp(const Entry& e1, const Entry& e2){
-		return e1.title < e2.title;
-}
+//private functions:
 
+bool EntrySet::entryComp(const Entry& e1, const Entry& e2){
+		return e1.title() < e2.title();
+}
 
 void EntrySet::sort(){
 	std::sort(setOfEntries.begin(), setOfEntries.end(), entryComp);
