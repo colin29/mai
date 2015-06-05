@@ -16,6 +16,9 @@
 #include "EntrySet.h"
 #include "Entry.h" //depends if the engine file will need to manipluate entries directly
 
+#include "CNoun.h"
+#include "Relation.h"
+
 using std::string;
 using std::vector;
 using std::cout;
@@ -29,17 +32,11 @@ int main(){
 init();
 
 
+
 //===================================start of testing area===================================
 
-Entry e1{"Physical Object"};
-Entry e2{"Representation of Info"};
-Entry e3{"Piece of Information"};
-Entry e4{"Book (Content)"};
-Entry e5{"Book (Physical)"};
-Entry e6{"AI (Entity)"};
-Entry e7{"Human"};
-
-
+CNoun("Human");
+Relation{is_a};
 
 //===================================end of testing area===================================
 }

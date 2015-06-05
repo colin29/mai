@@ -31,7 +31,6 @@ void EntrySet::printEntryBank() const{
 	for(vector<Entry>::const_iterator it = setOfEntries.begin(); it != setOfEntries.end(); it++){
 		cout << "Entry " << counter++ << ":"
 			 << "\nTitle: " << it->title() 
-			 << "\nDefinition: " << it->def()  
 			 << "\nTypes: " << it->conceptualType() << " " << it->pluralityType()
 			 << endl;
 	}
