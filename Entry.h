@@ -13,8 +13,7 @@ public:
 	enum conT{THING, ABSTRACT_TOPIC}; //"thing" includes both entities and objects. I'm hoping not including them at this level will make the entries more flextible.
 	enum plurT{COMMON_NOUN, PROPER_NOUN};
 
-	Entry() = delete; //no default because title, conT, plurT are effectively const.
-	Entry(std::string title, conT, plurT);
+	Entry(std::string title, conT c = THING, plurT p = COMMON_NOUN);
 
 	friend bool EntrySet::entryComp(const Entry&, const Entry&);
 	
@@ -30,6 +29,8 @@ private:
 	conT mConceptualType;
 	plurT mPluralityType; 
 	std::string mTitle; 
+
+	//std::vector<Element> elements;
 
 	std::string mDefinition;
 };

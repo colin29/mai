@@ -1,14 +1,20 @@
 #include "Entry.h"
+#include <stdexcept>
 
 using std::string;
 
 //public functions:
 
-Entry::Entry(string it, conT ic = THING,  plurT ip = COMMON_NOUN)
+
+Entry::Entry(string it, conT ic,  plurT ip)
 		: mTitle{it}
-		, mConceptualType{ic}
+		, mConceptualType{ic} 
 		, mPluralityType{ip}
-		{};
+		{
+			if (mConceptualType != THING || mPluralityType != COMMON_NOUN){
+				throw std::invalid_argument("only COMMON_NOUN THING entries are supported at the moment.");
+			}
+		};
 
 string Entry::title() const {return mTitle;}
 Entry::conT Entry::conceptualType() const {return mConceptualType;}

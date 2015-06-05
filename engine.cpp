@@ -30,20 +30,17 @@ init();
 
 
 //===================================start of testing area===================================
-//loadFromRelationTable();
 
-// cout << "Select an Option:"
+Entry e1{"Physical Object"};
+Entry e2{"Representation of Info"};
+Entry e3{"Piece of Information"};
+Entry e4{"Book (Content)"};
+Entry e5{"Book (Physical)"};
+Entry e6{"AI (Entity)"};
+Entry e7{"Human"};
 
-// Person a("Leo", 10, 1);
-// people.push_back(a);
-// Relation r("Leo", "Ami", Relation::TOMO);
-// relationTable.push_back(r);
-//Entry e1("Intelligence", Entry::ABSTRACT_NOUN);
-//e1.definition = "Ability to react meaningfully with a purpose to the input/environment.";
-//entryBank.insert(e1);
-entryBank.printEntryBank();
 
-// saveToRelationalTable();
+
 //===================================end of testing area===================================
 }
 
