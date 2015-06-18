@@ -12,15 +12,24 @@ class CNoun{
 
 
 public:
-CNoun(std::string iTitle);
 
-const std::vector<Relation>& getRelation ()const;
+CNoun(std::string title); //constructor should initialize title
 
+
+void addRelation(const Relation&);
+
+//Getter functions
+const std::vector<Relation>& getRelations ()const;
+std::string title() const;
 
 private:
-std::vector<Relation> relations;
-std::string title;
 
+//title: should not be modified except when whole object is replaced.
+std::string mTitle;
+
+
+std::vector<Relation> mRelations;
+std::vector<std::string> extraInfo;
 
 
 

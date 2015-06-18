@@ -1,5 +1,5 @@
 
-
+#include <stdexcept>
 #include <string>
 #include <vector>
 #include <utility>  
@@ -13,11 +13,13 @@
 #include <set>
 
 #include "engine.h" //empty for now
-#include "EntrySet.h"
-#include "Entry.h" //depends if the engine file will need to manipluate entries directly
 
 #include "CNoun.h"
+#include "Instance.h"
 #include "Relation.h"
+
+#include "Storage.h"
+#include "exception.h"
 
 using std::string;
 using std::vector;
@@ -27,21 +29,25 @@ using std::endl;
 // void saveToRelationalTable();
 // void loadFromRelationTable();
 
-EntrySet entryBank;
 int main(){
-init();
+
+// init();
 
 
 
 //===================================start of testing area===================================
 
-CNoun("Human");
-Relation{is_a};
+CNoun human{"Human"};
+CNoun entity{"Entity"};
+Relation r1 {human, IS_A, entity};
+Instance bob("bob");
+bob.addRelation(r1);
 
 //===================================end of testing area===================================
+
+
+
 }
-
-
 //------------------------------------------------------------------------------------------------------------------
 //Non-main Function Definitions ---------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------

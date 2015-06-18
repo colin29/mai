@@ -1,19 +1,31 @@
 #include "CNoun.h"
 
 using std::string;
+using std::vector;
 
 //Public functions
 CNoun::CNoun(string iTitle)
-: title{iTitle}
+: mTitle{iTitle}
 {}
 
 
 
+void CNoun::addRelation(const Relation& r){
+	//TODO:: check whether Relation involves the object it's being added to
+	mRelations.push_back(r);
+	return;
+}
 
 
 
+//Getter functions:
 
-
+const std::vector<Relation>& CNoun::getRelations() const {
+	return mRelations;
+};
+std::string CNoun::title() const {
+	return mTitle;
+};
 
 
 
@@ -22,24 +34,3 @@ CNoun::CNoun(string iTitle)
 
 
 //Private functions
-
-
-
-/*
-
-Life span of this object.
-
-has a bunch of elements.
-
-
-
-//Outside acess:
-
-Entry.getCNoun() // returns a reference, throws exception the Entry isn't a common Noun type.
-
-
-Elements's construcotrs automatically add themselves to the first noun.
-
-*/
-
-
