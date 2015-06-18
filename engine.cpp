@@ -1,5 +1,5 @@
 
-
+#include <stdexcept>
 #include <string>
 #include <vector>
 #include <utility>  
@@ -13,8 +13,13 @@
 #include <set>
 
 #include "engine.h" //empty for now
-#include "EntrySet.h"
-#include "Entry.h" //depends if the engine file will need to manipluate entries directly
+
+#include "CNoun.h"
+#include "Instance.h"
+#include "Relation.h"
+
+#include "Storage.h"
+#include "exception.h"
 
 using std::string;
 using std::vector;
@@ -24,30 +29,25 @@ using std::endl;
 // void saveToRelationalTable();
 // void loadFromRelationTable();
 
-EntrySet entryBank;
 int main(){
-init();
+
+// init();
+
 
 
 //===================================start of testing area===================================
-//loadFromRelationTable();
 
-// cout << "Select an Option:"
+CNoun human{"Human"};
+CNoun entity{"Entity"};
+Relation r1 {human, IS_A, entity};
+Instance bob("bob");
+bob.addRelation(r1);
 
-// Person a("Leo", 10, 1);
-// people.push_back(a);
-// Relation r("Leo", "Ami", Relation::TOMO);
-// relationTable.push_back(r);
-//Entry e1("Intelligence", Entry::ABSTRACT_NOUN);
-//e1.definition = "Ability to react meaningfully with a purpose to the input/environment.";
-//entryBank.insert(e1);
-entryBank.printEntryBank();
-
-// saveToRelationalTable();
 //===================================end of testing area===================================
+
+
+
 }
-
-
 //------------------------------------------------------------------------------------------------------------------
 //Non-main Function Definitions ---------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------
