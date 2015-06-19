@@ -18,3 +18,7 @@ AddRelationException::AddRelationException(string message)
 NonExistantEntryException::NonExistantEntryException(string message)
 	: MaiException("Something is referring by string to a entry that does not exist. || " + message)
 {}
+
+InvalidObjectException::InvalidObjectException(string message)
+	: MaiException("Object is not valid. (note that not all parts of the INVARIANT can be checked by code) || " + message)
+{}

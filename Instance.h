@@ -13,6 +13,9 @@ public:
 
 Instance(std::string title, std::string instanceOf = ""); //constructor should initialize title
 
+/*
+addRelation is used during the startup construction of the knowledge graph. May also be used futher down the road when Mai takes in information and constructs entries in the knowledge graph.
+*/
 void addRelation(const Relation&);
 
 //getters

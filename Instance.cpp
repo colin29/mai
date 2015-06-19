@@ -15,8 +15,8 @@ Instance::Instance(string title, string instanceOf)
 
 void Instance::addRelation(const Relation& r){
 	/*check whether Relation involves the object it's being added to. Checking is done by the Relation class because the required knowledge is more tightly related to the Relation class.*/
-	if(r.check(this->mTitle)==false){
-		throw AddRelationException();
+	if(checkRefersToInstance(this->mTitle)==false){
+		throw AddRelationException("Relation does not refer to the same Instance.");
 		//throw std::runtime_error("My error");
 	}
 	
