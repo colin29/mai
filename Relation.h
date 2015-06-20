@@ -47,14 +47,19 @@ std::string toString() const;
 /*
 As a rule, check functions that return a bool leave the throwing up to the caller, unless something stops themself from terminating properly.
 */
-bool checkCNoun(std::string) const;
-bool checkInstance(std::string) const;
+/*
+For reltypes such as IS A, for a relation like "Bob IS_A Human", the relations refers to Bob, and only Bob.
+
+For other reltypes, this is TBD.
+*/
+bool checkRefersToCNoun(std::string) const;
+bool checkRefersToInstance(std::string) const;
 
 
 private:
 
 /*
-assertRelation checks that the Relation looks valid. Call it at the end of constructors which seem sketchy.
+assertRelation makes makes several asserts checking that the Relation looks valid. Call it at the end of constructors which seem sketchy.
 assertRelation will throw InvalidDataException the Relation fails the check.
 */
 static void assertRelation(const Relation&);

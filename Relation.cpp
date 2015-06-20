@@ -1,6 +1,7 @@
 #include "Relation.h"
 #include "CNoun.h"
 #include "Instance.h"
+#include "exception.h"
 
 using std::vector;
 using std::string;
@@ -34,8 +35,8 @@ check returns true if this Relation applies to the entry(CNoun or Instance) refe
 */
 bool Relation::checkRefersToInstance(string title) const {
 	assertRelation(*this);
-	if(!(mContent[0].find(INSTANCE)==0))){ //mContent[0]should begin with INSTANCE.
-		return false
+	if(!(mContent[0].find(INSTANCE)==0)){ //mContent[0]should begin with INSTANCE.
+		return false;
 	}
 	if(mContent[0].substr(INSTANCE.size()) != title ){
 		return false;
@@ -44,20 +45,21 @@ bool Relation::checkRefersToInstance(string title) const {
 }
 bool Relation::checkRefersToCNoun(string title) const{
 	assertRelation(*this);
-	if(!(mContent[0].find(CNOUN)==0))){
+	if(!(mContent[0].find(CNOUN)==0)) {
 		return false;
 	}
 	if(mContent[0].substr(CNOUN.size()) != title) {
 		return false;
-	
-	return;
+	}	
+	return true;
 }
 
 
 //Private functions:
 
-void Relation::assertRelation(const Relation&){
-	if(mContent.size()==0){
+
+void Relation::assertRelation(const Relation& r){
+	if(r.mContent.size()==0){
 		throw InvalidObjectException("Relation::mContent is empty.");
 	}
 }

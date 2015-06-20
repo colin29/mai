@@ -15,6 +15,8 @@ Instance(std::string title, std::string instanceOf = ""); //constructor should i
 
 /*
 addRelation is used during the startup construction of the knowledge graph. May also be used futher down the road when Mai takes in information and constructs entries in the knowledge graph.
+
+Note: A relation can only be added to an entry if it refer to that entry.
 */
 void addRelation(const Relation&);
 
