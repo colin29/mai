@@ -30,6 +30,10 @@ mContent.push_back(CNOUN + c.title());
 }
 
 
+const vector<string>& Relation::getContent() const {
+	return mContent;
+}
+
 /*
 check returns true if this Relation applies to the entry(CNoun or Instance) referred to by the given string
 */
@@ -54,6 +58,11 @@ bool Relation::checkRefersToCNoun(string title) const{
 	return true;
 }
 
+//Getter functions:
+
+const RelType Relation::relType() const{
+	return mRelType;
+}
 
 //Private functions:
 
