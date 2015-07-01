@@ -4,12 +4,13 @@
 #include "CNoun.h"
 #include "Instance.h"
 
-class Test{
+namespace test{
 
 
 /*
 reccomended for engine to only call run and not call other functions.
 */
+
 void run();
 
 //if the function becomes useful, I can stick it into CNoun without too much work.

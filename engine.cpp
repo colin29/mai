@@ -32,13 +32,15 @@ using std::endl;
 // void loadFromRelationTable();
 
 
+static Storage storage; //not extern-able
+StorageReadInterface& storageRead = storage;
 
 int main(){
 
 // init();
 
 Storage storage{};
-test::run(); //test needs the object or a reference named "storage".
+test::run(); 
 
 //===================================start of testing area===================================
 

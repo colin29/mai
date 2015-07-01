@@ -33,7 +33,6 @@ Relation(CNoun, Is_a, CNoun); //INHERITANCE1
 Relation(Instance, Is_a, CNoun); //INHERITANCE2, etc.
 
 
-
 /*
 As a rule, check functions that return a bool leave the throwing up to the caller, unless something stops themself from terminating properly.
 */

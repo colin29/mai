@@ -8,6 +8,7 @@
 
 #include "Cnoun.h"
 #include "Instance.h"
+#include "StorageReadInterface.h"
 
 
 
@@ -22,22 +23,19 @@ struct InstanceComp{
 	}
 };
 
-class Storage{
+class Storage : public StorageReadInterface{
 
 public:
 Storage(); //nothing to initialize atm.
 
 
-/*
-both getInstance and getCNoun denote "not-found" by return an Entry with a blank title.
-*/
+//Access functions
 const Instance& getInstance(std::string s) const;
 const CNoun& getCNoun(std::string s) const;
 
-/*
-getParent returns an Instance's CNoun.
-Notes: An instance can validly have no CNoun, in which case,  returns a CNoun with an empty ("") title.
-*/
+
+
+//Convenience functions
 const CNoun& parent(const Instance&) const; 
 
 
