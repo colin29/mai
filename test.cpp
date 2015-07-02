@@ -3,6 +3,7 @@
 
 #include "test.h"
 #include "StorageReadInterface.h"
+#include "util.cpp"
 
 using std::cout;
 using std::endl;
@@ -14,38 +15,43 @@ extern StorageReadInterface& storageRead;
 
 void test::run(){
 //put your stuff to run here.
+
 }
+
 
 
 vector<string> test::getAncestors(const CNoun& ic){
 	//DFS floodfill
 	vector<string> results;
 	std::stack<CNoun> Q; //Performance: Unneccsary copying but I can't imagine n being that high. Alternative is a stack of vector<string>'s
-	CNoun cur = ic;
-	CNoun next{""};
+	CNoun cur{""};
+	CNoun add{""};
 	bool firstTime = true;
+
+	Q.push(ic);
 	while(!Q.empty()){
 
 		//push all of cur's CNoun's parents onto Q
 		for(vector<Relation>::const_iterator iterRel = cur.getRelations().begin(); iterRel!=cur.getRelations().end(); iterRel++){
 
 			if (iterRel->relType() == INHERITANCE1){
-				 next = storageRead.getCNoun(iterRel->getContent()[2]);
-				 Q.push(next);
+				add = storageRead.getCNoun(iterRel->getContent()[2]);
+				 Q.push(add);
 
 			}
 		}
 
-		cur = Q.pop();
+		cur = Q.top();
+		Q.pop();
 		if(!firstTime){
-			results.push(cur.title());
+			results.push_back(cur.title());
 		}
 		
-		//todo: search for the entry in the list of Cnoun.
+		//util::uniquify(results.begin(), results.end()); //remove duplicates
 	
 	}
 	
-	return vector<string> stub;
+	return results;
 }
 
 //kinda a naive function, no templates or anything.
@@ -60,3 +66,6 @@ void print(const vector<string>& vec){
 		cout << s << endl;
 	}
 }
+
+
+

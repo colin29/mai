@@ -4,10 +4,11 @@
 #include <string>
 #include <vector>
 
+#include "NounEntry.h"
 #include "Relation.h"
 #include "CNoun.h"
 
-class Instance{
+class Instance : public NounEntry {
 
 public:
 
@@ -18,9 +19,9 @@ addRelation is used during the startup construction of the knowledge graph. May 
 
 Note: A relation can only be added to an entry if it refer to that entry.
 */
-void addRelation(const Relation&);
+void addRelation(const Relation&) override;
 
-//getters
+//Getter functions
 const std::vector<Relation>& getRelations() const;
 std::string title() const;
 std::string cNoun() const;

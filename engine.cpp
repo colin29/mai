@@ -32,23 +32,22 @@ using std::endl;
 // void loadFromRelationTable();
 
 
-static Storage storage; //not extern-able
+static Storage storage{}; //not extern-able
 StorageReadInterface& storageRead = storage;
 
 int main(){
 
 // init();
 
-Storage storage{};
-test::run(); 
+test::run();
 
 //===================================start of testing area===================================
 
-// CNoun human{"Human"};
-// CNoun entity{"Entity"};
-// Relation r1 {human, IS_A, entity};
-// Instance bob("bob");
-// bob.addRelation(r1);
+CNoun human{"Human"};
+CNoun entity{"Entity"};
+Relation r1 {human, IS_A, entity};
+Instance bob("bob");
+bob.addRelation(r1);
 
 
 

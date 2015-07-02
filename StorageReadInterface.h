@@ -3,7 +3,7 @@
 StorageReadInterface provides a read-only interface to the Storage object. All functions here do not add, remove, or change any of the items stored in the Knowledge Graph*/
 class StorageReadInterface{
 
-
+public:
 // Access functions
 /*
 both getInstance and getCNoun denote "not-found" by return an Entry with a blank title.
