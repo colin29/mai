@@ -34,8 +34,8 @@ vector<string> test::getAncestors(const CNoun& ic){
 		//push all of cur's CNoun's parents onto Q
 		for(vector<Relation>::const_iterator iterRel = cur.getRelations().begin(); iterRel!=cur.getRelations().end(); iterRel++){
 
-			if (iterRel->relType() == INHERITANCE1){
-				add = storageRead.getCNoun(iterRel->getContent()[2]);
+			if (iterRel->relType() == RelType::INHERITANCE1){
+				add = storageRead.getCNoun(iterRel->getTarget(Inher1::PARENT));
 				 Q.push(add);
 
 			}

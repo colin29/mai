@@ -43,11 +43,13 @@ test::run();
 
 //===================================start of testing area===================================
 
-CNoun human{"Human"};
-CNoun entity{"Entity"};
-Relation r1 {human, IS_A, entity};
-Instance bob("bob");
-bob.addRelation(r1);
+// CNoun human{"Human"};
+// CNoun entity{"Entity"};
+// Relation r1 {human, IS_A, entity};
+// Instance bob("bob");
+// bob.addRelation(r1);
+
+
 
 
 

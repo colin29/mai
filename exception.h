@@ -23,3 +23,8 @@ class InvalidObjectException : public MaiException{
 public:
 	InvalidObjectException(std::string message = "");
 };
+
+class InvalidTypeException : public MaiException{
+public:
+	InvalidTypeException(std::string message = "");
+};

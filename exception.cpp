@@ -22,3 +22,7 @@ NonExistantEntryException::NonExistantEntryException(string message)
 InvalidObjectException::InvalidObjectException(string message)
 	: MaiException("Object is not valid. (note that not all parts of the INVARIANT can be checked by code) || " + message)
 {}
+
+InvalidTypeException::InvalidTypeException(string message)
+	: MaiException("Given type(s) are invalid || " + message)
+{}

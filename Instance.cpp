@@ -7,9 +7,9 @@ using std::string;
 using std::vector;
 
 
-Instance::Instance(string title, string instanceOf)
+Instance::Instance(string cNoun, string title)
 : mTitle{title},
-  mCNoun{instanceOf}
+  mCNoun{cNoun}
 {}
 
 
@@ -37,13 +37,3 @@ string Instance::title() const {
 string Instance::cNoun() const {
 	return mCNoun;
 }
-
-
-/*
-CNoun getCNoun(string cn){
-	if(cn==""){
-		return null;
-	}
-	//TODO:: look up "cn"
-	return null
-}*/
