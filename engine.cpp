@@ -21,6 +21,8 @@
 #include "Storage.h"
 #include "exception.h"
 
+#include "test.h" //not meant to be re-used as a whole, but certain functions be useful
+
 using std::string;
 using std::vector;
 using std::cout;
@@ -29,19 +31,27 @@ using std::endl;
 // void saveToRelationalTable();
 // void loadFromRelationTable();
 
+
+static Storage storage{}; //not extern-able
+StorageReadInterface& storageRead = storage;
+
 int main(){
 
 // init();
 
-
+test::run();
 
 //===================================start of testing area===================================
 
-CNoun human{"Human"};
-CNoun entity{"Entity"};
-Relation r1 {human, IS_A, entity};
-Instance bob("bob");
-bob.addRelation(r1);
+// CNoun human{"Human"};
+// CNoun entity{"Entity"};
+// Relation r1 {human, IS_A, entity};
+// Instance bob("bob");
+// bob.addRelation(r1);
+
+
+
+
 
 //===================================end of testing area===================================
 

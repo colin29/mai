@@ -1,5 +1,7 @@
 #include "CNoun.h"
 
+#include "exception.h"
+
 using std::string;
 using std::vector;
 
@@ -11,7 +13,10 @@ CNoun::CNoun(string iTitle)
 
 
 void CNoun::addRelation(const Relation& r){
-	//TODO:: check whether Relation involves the object it's being added to
+	if(r.checkRefersToCNoun(this->mTitle)==false){
+		throw AddRelationException("Relation does not refer to the same CNoun.");
+	}
+	
 	mRelations.push_back(r);
 	return;
 }
@@ -20,10 +25,10 @@ void CNoun::addRelation(const Relation& r){
 
 //Getter functions:
 
-const std::vector<Relation>& CNoun::getRelations() const {
+const vector<Relation>& CNoun::getRelations() const {
 	return mRelations;
 };
-std::string CNoun::title() const {
+string CNoun::title() const {
 	return mTitle;
 };
 

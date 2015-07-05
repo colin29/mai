@@ -9,17 +9,26 @@ using std::set;
 
 
 
-
+const CNoun Storage::EMPTY_CNOUN = CNoun("");
+const Instance Storage::EMPTY_INSTANCE = Instance("");
 
 
 Storage::Storage(){};
 
-CNoun Storage::getCNoun(const Instance& i){
+
+const CNoun& Storage::getCNoun(string s) const{
+	return EMPTY_CNOUN; //TODO: stub
+}
+const Instance& Storage::getInstance(string s) const{
+	return EMPTY_INSTANCE; //TODO: stub
+}
+
+const CNoun& Storage::parent(const Instance& i) const{
 	if(i.cNoun()==""){
-		return CNoun(""); //represents Instance having no CNoun
+		return EMPTY_CNOUN; //represents Instance having no CNoun
 	}
 	CNoun temp(i.cNoun()); //create temp CNoun with same title
-	set<CNoun>::iterator it = mCNouns.find(temp); 
+	set<CNoun>::const_iterator it = mCNouns.find(temp); 
 	if(it==mCNouns.end()){
 		throw NonExistantEntryException();
 	}else{

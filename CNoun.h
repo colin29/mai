@@ -5,10 +5,10 @@
 #include <vector>
 
 #include "Relation.h"
+#include "NounEntry.h"
 
 
-
-class CNoun{
+class CNoun : public NounEntry{
 
 
 public:
@@ -16,7 +16,7 @@ public:
 CNoun(std::string title); //constructor should initialize title
 
 
-void addRelation(const Relation&);
+void addRelation(const Relation&) override;
 
 //Getter functions
 const std::vector<Relation>& getRelations ()const;
@@ -29,7 +29,7 @@ std::string mTitle;
 
 
 std::vector<Relation> mRelations;
-std::vector<std::string> extraInfo;
+
 
 
 
