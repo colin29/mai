@@ -29,7 +29,12 @@ public:
 Storage(); //nothing to initialize atm.
 
 
-//Access functions
+//add functions:
+Storage& add(const CNoun&);
+Storage& add(const Instance&);
+
+
+//Read-only Access functions
 const Instance& getInstance(std::string s) const;
 const CNoun& getCNoun(std::string s) const;
 
@@ -40,7 +45,12 @@ const CNoun& parent(const Instance&) const;
 
 
 private:
-std::set<CNoun, CNounComp> mCNouns;
+
+
+/*
+mCNouns and mInstances are backend containers which hold all CNouns and Instances in a Storage.
+*/
+std::set<CNoun, CNounComp> mCNouns; 
 std::set<Instance, InstanceComp> mInstances;
 
 static const CNoun EMPTY_CNOUN;

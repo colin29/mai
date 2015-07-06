@@ -26,3 +26,7 @@ InvalidObjectException::InvalidObjectException(string message)
 InvalidTypeException::InvalidTypeException(string message)
 	: MaiException("Given type(s) are invalid || " + message)
 {}
+
+EmptyEntryException::EmptyEntryException(string message)
+	: MaiException("Entry should not be empty. || " + message)
+{}

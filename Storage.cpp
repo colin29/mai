@@ -16,11 +16,37 @@ const Instance Storage::EMPTY_INSTANCE = Instance("");
 Storage::Storage(){};
 
 
-const CNoun& Storage::getCNoun(string s) const{
-	return EMPTY_CNOUN; //TODO: stub
+//add functions (inserting new items into the model)
+Storage& Storage::add(const CNoun& c){
+	mCNouns.insert(c);
+	return *this;
 }
+Storage& Storage::add(const Instance& i){
+	mInstances.insert(i);
+	return *this;
+}
+
+
+//Read-only access functions
+
+const CNoun& Storage::getCNoun(string s) const{
+	CNoun temp(s); //construct a CNoun with title equal the one we are searching for.
+	auto iter = mCNouns.find(temp);
+	if (iter==mCNouns.end()){
+		return EMPTY_CNOUN;
+	}else{
+		return *iter;
+	}
+}
+
 const Instance& Storage::getInstance(string s) const{
-	return EMPTY_INSTANCE; //TODO: stub
+	Instance temp(s); //construct an Instnace with title equal the one we are searching for.
+	auto iter = mInstances.find(temp);
+	if(iter == mInstances.end()){
+		return EMPTY_INSTANCE;
+	}else{
+		return *iter;
+	}
 }
 
 const CNoun& Storage::parent(const Instance& i) const{

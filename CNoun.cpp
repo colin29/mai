@@ -1,6 +1,8 @@
 #include "CNoun.h"
+#include "Relation.h"
 
 #include "exception.h"
+
 
 using std::string;
 using std::vector;
@@ -13,8 +15,8 @@ CNoun::CNoun(string iTitle)
 
 
 void CNoun::addRelation(const Relation& r){
-	if(r.checkRefersToCNoun(this->mTitle)==false){
-		throw AddRelationException("Relation does not refer to the same CNoun.");
+	if(r.checkRefersToCNoun(mTitle)==false){
+		throw AddRelationException(r.getTarget(Inher1::CHILD) + "!=" + mTitle + ": Relation does not refer to the same CNoun.");
 	}
 	
 	mRelations.push_back(r);

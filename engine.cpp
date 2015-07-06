@@ -28,6 +28,8 @@ using std::vector;
 using std::cout;
 using std::endl;
 
+using test::print;
+
 // void saveToRelationalTable();
 // void loadFromRelationTable();
 
@@ -43,11 +45,50 @@ test::run();
 
 //===================================start of testing area===================================
 
-// CNoun human{"Human"};
-// CNoun entity{"Entity"};
-// Relation r1 {human, IS_A, entity};
-// Instance bob("bob");
-// bob.addRelation(r1);
+{
+
+CNoun foo1{"foo1"};
+CNoun foo2{"foo2"};
+CNoun foo3{"foo3"};
+
+CNoun doo1{"doo1"};
+CNoun doo2{"doo12"};
+CNoun doo3{"doo3"};
+
+CNoun goo1{"goo12"};
+CNoun goo2{"goo13"};
+CNoun goo3{"goo3"};
+
+doo1.addRelation(Relation(doo1, IS_A, foo1));
+doo2.addRelation(Relation(doo2, IS_A, foo1));
+doo2.addRelation(Relation(doo2, IS_A, foo2));
+doo3.addRelation(Relation(doo3, IS_A, foo3));
+
+goo1.addRelation(Relation(goo1, IS_A, goo1));
+goo1.addRelation(Relation(goo1, IS_A, goo2));
+goo2.addRelation(Relation(goo2, IS_A, goo1));
+goo2.addRelation(Relation(goo2, IS_A, goo3));
+goo3.addRelation(Relation(goo3, IS_A, goo3));
+
+storage.add(foo1)
+	   .add(foo2)
+	   .add(foo3)
+	   .add(doo1)
+	   .add(doo2)
+	   .add(doo3)
+	   .add(goo1)
+	   .add(goo2)
+	   .add(goo3);
+
+cout<<storage.getCNoun("foo1").title()<<endl;
+cout << test::getAncestors(doo2).size() << endl;
+print(test::getAncestors(doo2));
+
+}
+
+
+
+
 
 
 

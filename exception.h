@@ -28,3 +28,8 @@ class InvalidTypeException : public MaiException{
 public:
 	InvalidTypeException(std::string message = "");
 };
+
+class EmptyEntryException : public MaiException{
+public:
+	EmptyEntryException(std::string message = "");
+};
